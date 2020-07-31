@@ -1,11 +1,13 @@
 package com.example.springrecipeapp.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 @Data
+@EqualsAndHashCode(exclude = "recipe")
 @Entity
 public class Ingredient {
 

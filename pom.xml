@@ -68,6 +68,17 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.7-1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.2.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -84,9 +95,9 @@
                     <includes>
                         <include>**/*IT.java</include>
                     </includes>
-                    <additionalClassPathElements>
-                        <additionalClassPathElement>${basedir}/target/classes</additionalClassPathElement>
-                    </additionalClassPathElements>
+                    <additionalClasspathElements>
+                        <additionalClasspathElement>${basedir}/target/classes</additionalClasspathElement>
+                    </additionalClasspathElements>
                     <parallel>none</parallel>
                 </configuration>
                 <executions>

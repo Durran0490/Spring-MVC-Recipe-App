@@ -103,7 +103,7 @@ public class IngredientServiceImpl implements IngredientService {
                         .findFirst();
             }
 
-            //to do check for fail
+            //todo check for fail
             return ingredientToIngredientCommand.convert(savedIngredientOptional.get());
         }
 

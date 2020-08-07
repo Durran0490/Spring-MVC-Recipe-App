@@ -48,6 +48,7 @@ public class IngredientController {
         model.addAttribute("uomList", unitOfMeasureService.listAllUoms());
         return "recipe/ingredient/ingredientform";
     }
+
     @GetMapping("/recipe/{recipeId}/ingredient/new")
     public String newIngredient(@PathVariable String recipeId, Model model){
         RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));

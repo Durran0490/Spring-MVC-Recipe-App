@@ -3,6 +3,7 @@ package com.example.springrecipeapp.services;
 import com.example.springrecipeapp.commands.IngredientCommand;
 import com.example.springrecipeapp.converters.IngredientCommandToIngredient;
 import com.example.springrecipeapp.converters.IngredientToIngredientCommand;
+import com.example.springrecipeapp.exceptions.NotFoundException;
 import com.example.springrecipeapp.model.Ingredient;
 import com.example.springrecipeapp.model.Recipe;
 import com.example.springrecipeapp.repositories.RecipeRepository;
@@ -55,6 +56,8 @@ public class IngredientServiceImpl implements IngredientService {
 
     }
 
+
+
     @Override
     @Transactional
     public IngredientCommand saveIngredientCommand(IngredientCommand command) {
@@ -106,8 +109,6 @@ public class IngredientServiceImpl implements IngredientService {
             //todo check for fail
             return ingredientToIngredientCommand.convert(savedIngredientOptional.get());
         }
-
-
     }
 
     @Override

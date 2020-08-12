@@ -1,6 +1,7 @@
 package com.example.springrecipeapp.controllers;
 
 import com.example.springrecipeapp.commands.RecipeCommand;
+import com.example.springrecipeapp.exceptions.NotFoundException;
 import com.example.springrecipeapp.model.Recipe;
 import com.example.springrecipeapp.services.RecipeService;
 import org.junit.Before;
@@ -33,6 +34,15 @@ public class RecipeControllerTest {
 
         controller = new RecipeController(recipeService);
         mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+    }
+
+    @Test
+    public void testGetRecipeNotFound() throws Exception{
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/recipe/1/show"))
+                .andExpect(status().isNotFound())
+                .andExpect(view().name("404error"));
     }
 
     @Test
@@ -94,5 +104,15 @@ public class RecipeControllerTest {
                 .andExpect(view().name("redirect:/"));
 
         verify(recipeService, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    public void testToGetRecipeNotFound() throws Exception{
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+        mockMvc.perform(get("/recipe/1/show"))
+                .andExpect(status().isNotFound());
     }
 }

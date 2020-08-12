@@ -1,6 +1,7 @@
 package com.example.springrecipeapp.services;
 
 import com.example.springrecipeapp.commands.IngredientCommand;
+import com.example.springrecipeapp.model.Recipe;
 
 public interface IngredientService {
     IngredientCommand findByRecipeIdAndIngredientId(Long recipeId, Long id);

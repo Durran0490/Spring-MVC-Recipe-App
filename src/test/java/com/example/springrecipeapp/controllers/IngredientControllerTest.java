@@ -128,4 +128,6 @@ public class IngredientControllerTest {
                 .andExpect(view().name("redirect:/recipe/1/ingredients"))
                 .andExpect(model().attributeExists("recipe"));
     }
+
+
 }
